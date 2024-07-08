@@ -108,7 +108,7 @@ class HTTPLog implements IHTTPLogger {
 }
 
 declare global {
-  var HTTPLogger: IHTTPLogger;
+  var HTTPLogger: typeof HTTPLog;
 }
 
 // @ts-ignore

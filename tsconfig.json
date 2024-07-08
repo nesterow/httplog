@@ -28,5 +28,6 @@
     "declaration": true,
     "declarationMap": true,
   },
-  "include": ["./*"]
+  "include": ["./*"],
+  "exclude": ["node_modules", "dist", "./*.test.ts", "./*.spec.ts"]
 }
