@@ -1,11 +1,11 @@
 
 export type Event = Record<string, string | string[]>;
 
-export interface IHTTPLogger {
+export interface IHTTPLoger {
   log(event: string, ...tags: string[]): void;
 }
 
-export type HTTPLoggerOptions = {
+export type HTTPLogerOptions = {
     url: string;
     bufferSize?: number;
     throttle?: number;
@@ -13,7 +13,7 @@ export type HTTPLoggerOptions = {
     getMetadata?: () => Event;
 };
 
-class HTTPLog implements IHTTPLogger {
+export class HTTPLoger implements IHTTPLoger {
   #url: string;
   #buffer: Event[] = [];
   #bufferSize: number = 3;
@@ -107,9 +107,4 @@ class HTTPLog implements IHTTPLogger {
   }
 }
 
-declare global {
-  var HTTPLogger: typeof HTTPLog;
-}
-
-// @ts-ignore
-globalThis.HTTPLogger = HTTPLog;
+export default HTTPLoger;
