@@ -1,5 +1,5 @@
 import { expect, test, beforeAll, jest } from "bun:test";
-import './index.ts';
+import HTTPLoger from './index.ts';
 
 beforeAll(() => {
     // Bun: not yet implemented
@@ -8,7 +8,7 @@ beforeAll(() => {
 
 test("HTTPLogger", async () => {
     let ping = 0;
-    let instance = new HTTPLogger({
+    let instance = new HTTPLoger({
         url: "http://localhost:3000",
         fetch: async (_, body) => {
             ping++;
